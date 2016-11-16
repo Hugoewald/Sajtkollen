@@ -1,6 +1,6 @@
 {
   "name": "Viralkollen – av Viralgranskaren",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "default_locale": "en",
   "description": "Varnar dig för tveksamma sajter. Baserad på B.S Detector",

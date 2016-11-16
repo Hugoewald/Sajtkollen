@@ -58,8 +58,11 @@ chrome.extension.sendMessage({}, function(response) {
 			$.each(links, function(index, url) {
 				var badLink = 'a[href*="' + url + '"]';
 				$(badLink).each(function() {
-					$(this).addClass('hint--error hint--large hint--bottom');
+					$(this).addClass('hint--error hint--large');
 					$(this).attr('aria-label', 'Den här webbsidan finns på Viralgranskarens varningslista för att den sprider eller tidigare spridit falsk information.');
+					$(this).on('click', function() {
+						window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/","mywindow","menubar=1,resizable=1,width=450,height=650");
+					});
 				});
 			});
 		};
@@ -69,5 +72,11 @@ chrome.extension.sendMessage({}, function(response) {
 			linkWarning();
 		});
 	}
+
 }, 5);
+
+$('.hint--error').on('click', function() {
+	window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/");
+});
+
 });
