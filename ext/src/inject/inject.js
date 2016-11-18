@@ -50,7 +50,12 @@ chrome.extension.sendMessage({}, function(response) {
 			'borowitzreport.com',
 			'jamstalldhetsfeministern.wordpress.com',
 			'koling.nu',
-			'riktigtsjukt.se'
+			'riktigtsjukt.se',
+			"abcnews.com.co",
+			"nbcnews.com.co",
+			"beforeitsnews.com",
+			"enduringvision.com"
+
 
 		];
 
