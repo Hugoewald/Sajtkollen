@@ -25,6 +25,7 @@
      "css": [ "css/hint.min.css", "src/inject/inject.css"],
      "js": [ "js/jquery/jquery.min.js", "src/inject/inject.js" ],
      "matches": [ "*://*/*" ],
+     "exclude_matches": ["http://www.metro.se/*"],
      "run_at": "document_end"
   } ]
 }
