@@ -50,7 +50,7 @@ chrome.extension.sendMessage({}, function(response) {
                       $('a[href="' + value.shortUrl + '"]').attr('longurl', value.longUrl);
                     });
                   } else {
-                   console.log('Vi kunde inte expandera den förkortade länken.');
+                   console.log('BS Detector could not expand shortened links');
                    console.log(response.expandedLinks);
                   }
                 });
@@ -72,7 +72,7 @@ chrome.extension.sendMessage({}, function(response) {
                     classType = 'Conspiracy Theory';
                     break;
                   case 'fake':
-                    classType = 'Den ';
+                    classType = 'Fake News';
                     break;
                   case 'junksci':
                     classType = 'Junk Science';
@@ -87,7 +87,7 @@ chrome.extension.sendMessage({}, function(response) {
                     classType = 'Hate Group';
                     break;
                 }
-                var warnMessage = 'Den här webbsidan finns på Viralgranskarens varningslista. Klicka för att läsa varför!';
+                var warnMessage = 'Den här webbsidan finns på Viralgranskarens varningslista.';
 
                 $(badLink).each(function() {
                   // facebook handler
@@ -114,6 +114,14 @@ chrome.extension.sendMessage({}, function(response) {
                   } else if (window.location.hostname == 'twitter.com') {
                     if ($(this).parents('.TwitterCard').length == 1) {
                       badLinkWrapper = $(this).closest('.TwitterCard');
+                      if (!badLinkWrapper.hasClass('fFlagged')) {
+                        badLinkWrapper.before('<div class="bsAlert">' + warnMessage + '</div>');
+                        badLinkWrapper.addClass('fFlagged');
+                      }
+                    }
+                  } else if (window.location.hostname == 'google.se') {
+                    if ($(this).parents('.r').length == 1) {
+                      badLinkWrapper = $(this).closest('.g');
                       if (!badLinkWrapper.hasClass('fFlagged')) {
                         badLinkWrapper.before('<div class="bsAlert">' + warnMessage + '</div>');
                         badLinkWrapper.addClass('fFlagged');
