@@ -130,6 +130,9 @@ chrome.extension.sendMessage({}, function(response) {
                   } else {
                     $(this).addClass("hint--error hint--large hint--bottom");
                     $(this).attr('aria-label', warnMessage);
+                    $('.hint--error').on('click', function() {
+                    window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/","mywindow","menubar=1,resizable=1,width=450,height=650");
+                    });
                   }
                 });
               });
