@@ -1,0 +1,36 @@
+.bs-alert {
+  background: black;
+  display: block;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.bs-alert p {
+  color: white;
+  display: block;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 2em;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+body.shift {
+  margin-top: 40px;
+}
+
+.bs-alert-inline {
+  background: black;
+  color: white;
+  text-align: center;
+  margin: 8px 0;
+  padding: 4px;
+}
+
+[class*="hint--"] {
+}
