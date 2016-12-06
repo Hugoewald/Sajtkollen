@@ -131,6 +131,9 @@ chrome.extension.sendMessage({}, function(response) {
             case 'test':
               classType = 'The Self Agency: Makers of the B.S. Detector';
               break;
+              case 'test2':
+                classType = 'The Self Agency: Makers of the B.S. Detector';
+                break;
             default:
               classType = 'Classification Pending';
               break;
@@ -139,6 +142,11 @@ chrome.extension.sendMessage({}, function(response) {
             warnMessage = '<img src="https://pbs.twimg.com/profile_images/458552179373010946/yw0-Od9d_400x400.png" /> &nbsp; Den här webbsidan finns på Viralgranskarens varningslista.';
           } else {
             warnMessage = classType;
+          }
+          if (dataType != 'test2') {
+            warnMessage2 = 'Den här webbsidan finns på Viralgranskarens varningslista.';
+          } else {
+            warnMessage2 = classType;
           }
         }
 
@@ -171,9 +179,12 @@ chrome.extension.sendMessage({}, function(response) {
               case 'badlink':
                 $(badLink).each(function() {
                 if ($(this).attr('is-bs') != 'true' && $(this).attr('href').indexOf(currentSite[0].url) < 0) {
-                $(this).prepend('🚫 ');
-                 $(this).addClass("hint--error hint--large hint--bottom");
-                $(this).attr('aria-label', warnMessage);
+                $(this).prepend('<img src="https://pbs.twimg.com/profile_images/458552179373010946/yw0-Od9d_400x400.png" width=20px height=20px /> &nbsp;');
+                 $(this).addClass("hint--error hint--large hint--top");
+                $(this).attr('aria-label', warnMessage2);
+                $(this).on('click', function() {
+				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/","mywindow",'_blank');
+});
                 $(this).attr('is-bs', 'true');
                 }
                 });
@@ -181,9 +192,12 @@ chrome.extension.sendMessage({}, function(response) {
               case 'none':
                 $(badLink).each(function() {
                 if ($(this).attr('is-bs') != 'true') {
-                $(this).prepend('<img src=  ');
-                $(this).addClass("hint--error hint--large hint--bottom");
-                $(this).attr('aria-label', warnMessage);
+                $(this).prepend('<img src="https://pbs.twimg.com/profile_images/458552179373010946/yw0-Od9d_400x400.png" width=20px height=20px/> &nbsp;');
+                $(this).addClass("hint--error hint--large hint--top");
+                $(this).attr('aria-label', warnMessage2);
+                $(this).on('click', function() {
+				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
+});
                 $(this).attr('is-bs', 'true');
                 }
                 });
@@ -271,7 +285,9 @@ chrome.extension.sendMessage({}, function(response) {
           subtree: true
         };
         mutationObserver.observe(targetNode, observerConfig);
-
+        $('badLink').on('click', function() {
+        	window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
+         });
         // execute
         trigger();
     });
