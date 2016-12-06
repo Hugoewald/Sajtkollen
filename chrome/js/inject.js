@@ -136,7 +136,7 @@ chrome.extension.sendMessage({}, function(response) {
               break;
           }
           if (dataType != 'test') {
-            warnMessage = 'Den här webbsidan finns på Viralgranskarens varningslista.';
+            warnMessage = '<img src="https://pbs.twimg.com/profile_images/458552179373010946/yw0-Od9d_400x400.png" /> &nbsp; Den här webbsidan finns på Viralgranskarens varningslista.';
           } else {
             warnMessage = classType;
           }
@@ -181,7 +181,7 @@ chrome.extension.sendMessage({}, function(response) {
               case 'none':
                 $(badLink).each(function() {
                 if ($(this).attr('is-bs') != 'true') {
-                $(this).prepend('🚫 ');
+                $(this).prepend('<img src=  ');
                 $(this).addClass("hint--error hint--large hint--bottom");
                 $(this).attr('aria-label', warnMessage);
                 $(this).attr('is-bs', 'true');

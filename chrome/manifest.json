@@ -30,6 +30,7 @@
      "run_at": "document_end"
   } ],
   "web_accessible_resources": [
-    "data/data.json"
+    "data/data.json",
+    "logo.png"
     ]
 }
