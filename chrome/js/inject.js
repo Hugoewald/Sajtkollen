@@ -139,7 +139,7 @@ chrome.extension.sendMessage({}, function(response) {
               break;
           }
           if (dataType != 'test') {
-            warnMessage = '<img src="https://pbs.twimg.com/profile_images/458552179373010946/yw0-Od9d_400x400.png" /> &nbsp; Den här webbsidan finns på Viralgranskarens varningslista.';
+            warnMessage = '<img src="https://pbs.twimg.com/profile_images/458552179373010946/yw0-Od9d_400x400.png" /> &nbsp; Den här webbsidan finns på Viralgranskarens varningslista';
           } else {
             warnMessage = classType;
           }
@@ -212,10 +212,16 @@ chrome.extension.sendMessage({}, function(response) {
                   if ($(this).parents('._1dwg').length == 1) {
                     badLinkWrapper = $(this).closest('.mtm');
                     flagIt();
+                    $(this).on('click', function() {
+    				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
+    });
                   }
                   if ($(this).parents('.UFICommentContent').length == 1) {
                     badLinkWrapper = $(this).closest('.UFICommentBody');
                     flagIt();
+                    $(this).on('click', function() {
+    				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
+    });
                   }
                 });
                 break;
