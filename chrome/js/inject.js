@@ -54,7 +54,7 @@ chrome.extension.sendMessage({}, function(response) {
                   siteId = 'facebook';
                   break;
                 case 'twitter.com':
-                  siteId = 'facebook';
+                  siteId = 'twitter';
                   break;
                 case currentSite:
                   siteId = 'badlink';
@@ -158,10 +158,17 @@ chrome.extension.sendMessage({}, function(response) {
           $('.bs-alert').append('<p>' + warnMessage + '</p>');
         }
 
-        // flag links fb/twitter
+        // flag links
         function flagIt() {
           if (!badLinkWrapper.hasClass('fFlagged')) {
             badLinkWrapper.before('<div class="bs-alert-inline">' + warnMessage + '</div>');
+            badLinkWrapper.addClass('fFlagged');
+          }
+        }
+        // flag links twitter
+        function flagIt2() {
+          if (!badLinkWrapper.hasClass('fFlagged')) {
+            $('.js-tweet-text-container').prepend('<div class="bs-alert-inline">' + warnMessage + '</div>');
             badLinkWrapper.addClass('fFlagged');
           }
         }
@@ -229,7 +236,7 @@ chrome.extension.sendMessage({}, function(response) {
                 $(badLink).each(function() {
                   if ($(this).parents('.tweet').length == 1) {
                     badLinkWrapper = $(this).closest('.js-tweet-text-container');
-                    flagIt();
+                    flagIt2();
                   }
                 });
                 break;
