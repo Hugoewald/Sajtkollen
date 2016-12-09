@@ -51,11 +51,19 @@ chrome.extension.sendMessage({}, function(response) {
             } else {
               switch(currentUrl) {
                 case 'www.facebook.com':
+                case 'facebook.com':
                   siteId = 'facebook';
                   break;
                 case 'twitter.com':
+                case 'www.twitter.com':
                   siteId = 'twitter';
                   break;
+                  case 'google.com':
+                  case 'www.google.com':
+                  case 'www.google.se':
+                  case 'google.se':
+                    siteId = 'google';
+                    break;
                 case currentSite:
                   siteId = 'badlink';
                   break;
@@ -172,6 +180,13 @@ chrome.extension.sendMessage({}, function(response) {
             badLinkWrapper.addClass('fFlagged');
           }
         }
+          // flag links Google
+        function flagIt3() {
+          if (!badLinkWrapper.hasClass('fFlagged')) {
+            badLinkWrapper.before('<div class="bs-alert-inline">' + warnMessage + '</div>');
+            badLinkWrapper.addClass('fFlagged');
+          }
+        }
 
         // generate link warnings
         function linkWarning() {
@@ -240,6 +255,14 @@ chrome.extension.sendMessage({}, function(response) {
                   }
                 });
                 break;
+                case 'google':
+                  $(badLink).each(function() {
+                    if ($(this).parents('.g').length == 1) {
+                      badLinkWrapper = $(this).closest('.rc');
+                      flagIt3();
+                    }
+                  });
+                  break;
             }
           });
 
