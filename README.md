@@ -1,4 +1,4 @@
-# Sajtkollen
+# Viralgranskarens varningslista
 Webbläsartillägg som varnar för sidor som finns på Viralgranskarens varningslista. Baserad på https://github.com/selfagency/bs-detector/
 
 På Viralgranskarens varningslista hittar du sajter som skriver fejkade påståenden eller satiriska artiklar. De får ibland spridning som vore de på riktigt och i dagens röriga värld på nätet kan det vara bra med en liten varningsklocka som visar när du håller på att gå in på en sådan sajt.
