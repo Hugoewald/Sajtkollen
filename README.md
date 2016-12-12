@@ -6,3 +6,5 @@ På Viralgranskarens varningslista hittar du sajter som skriver fejkade påståe
 Metro presenterar därför webbläsartillägget Viralgranskarens varningslista. Du får upp en liten varningsruta vid länkar som går till sajter på varningslistan och surfar du till exempel på Facebook kommer den märka om du är på väg att klicka dig in på en länk som leder till en sajt på listan.
 
 Klickar du på länken så kommer du självklart in på sajten som du ska, men du kan välja att läsa mer på varningslistan där vi även länkar till de viralgranskningar vi skrivit om olika sajter. 
+
+Tillägget går att ladda ner här: https://chrome.google.com/webstore/detail/viralgranskarens-varnings/pjmmkidfflgolkfgcgpjhpdiimenoodn
