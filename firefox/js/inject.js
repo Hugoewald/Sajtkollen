@@ -51,11 +51,19 @@ chrome.extension.sendMessage({}, function(response) {
             } else {
               switch(currentUrl) {
                 case 'www.facebook.com':
+                case 'facebook.com':
                   siteId = 'facebook';
                   break;
                 case 'twitter.com':
-                  siteId = 'facebook';
+                case 'www.twitter.com':
+                  siteId = 'twitter';
                   break;
+                  case 'google.com':
+                  case 'www.google.com':
+                  case 'www.google.se':
+                  case 'google.se':
+                    siteId = 'google';
+                    break;
                 case currentSite:
                   siteId = 'badlink';
                   break;
@@ -139,7 +147,7 @@ chrome.extension.sendMessage({}, function(response) {
               break;
           }
           if (dataType != 'test') {
-            warnMessage = '<img src="https://pbs.twimg.com/profile_images/458552179373010946/yw0-Od9d_400x400.png" /> &nbsp; Den här webbsidan finns på Viralgranskarens varningslista.';
+            warnMessage = '<img src="https://pbs.twimg.com/profile_images/458552179373010946/yw0-Od9d_400x400.png" /> &nbsp; Den här webbsidan finns på Viralgranskarens varningslista';
           } else {
             warnMessage = classType;
           }
@@ -158,8 +166,22 @@ chrome.extension.sendMessage({}, function(response) {
           $('.bs-alert').append('<p>' + warnMessage + '</p>');
         }
 
-        // flag links fb/twitter
+        // flag links
         function flagIt() {
+          if (!badLinkWrapper.hasClass('fFlagged')) {
+            badLinkWrapper.before('<div class="bs-alert-inline">' + warnMessage + '</div>');
+            badLinkWrapper.addClass('fFlagged');
+          }
+        }
+        // flag links twitter
+        function flagIt2() {
+          if (!badLinkWrapper.hasClass('fFlagged')) {
+            $('.js-tweet-text-container').prepend('<div class="bs-alert-inline">' + warnMessage + '</div>');
+            badLinkWrapper.addClass('fFlagged');
+          }
+        }
+          // flag links Google
+        function flagIt3() {
           if (!badLinkWrapper.hasClass('fFlagged')) {
             badLinkWrapper.before('<div class="bs-alert-inline">' + warnMessage + '</div>');
             badLinkWrapper.addClass('fFlagged');
@@ -212,10 +234,16 @@ chrome.extension.sendMessage({}, function(response) {
                   if ($(this).parents('._1dwg').length == 1) {
                     badLinkWrapper = $(this).closest('.mtm');
                     flagIt();
+                    $(this).on('click', function() {
+    				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
+    });
                   }
                   if ($(this).parents('.UFICommentContent').length == 1) {
                     badLinkWrapper = $(this).closest('.UFICommentBody');
                     flagIt();
+                    $(this).on('click', function() {
+    				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
+    });
                   }
                 });
                 break;
@@ -223,10 +251,18 @@ chrome.extension.sendMessage({}, function(response) {
                 $(badLink).each(function() {
                   if ($(this).parents('.tweet').length == 1) {
                     badLinkWrapper = $(this).closest('.js-tweet-text-container');
-                    flagIt();
+                    flagIt2();
                   }
                 });
                 break;
+                case 'google':
+                  $(badLink).each(function() {
+                    if ($(this).parents('.g').length == 1) {
+                      badLinkWrapper = $(this).closest('.rc');
+                      flagIt3();
+                    }
+                  });
+                  break;
             }
           });
 

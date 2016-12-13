@@ -1,6 +1,6 @@
 {
   "name": "Viralgranskarens varningslista",
-  "version": "0.1.5",
+  "version": "0.2.5",
   "author": "Tidnings AB Metro",
   "manifest_version": 2,
   "default_locale": "en",
@@ -15,6 +15,9 @@
     "scripts": [ "js/background.js" ],
     "persistent": true
   },
+  "browser_action": {
+   "default_popup": "popup.html"
+ },
   "content_scripts": [ {
      "css": [ "css/hint.min.css", "css/inject.css" ],
      "js": [ "js/jquery-3.1.1.slim.min.js", "js/inject.js" ],
