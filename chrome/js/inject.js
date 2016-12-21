@@ -174,12 +174,13 @@ chrome.extension.sendMessage({}, function(response) {
           }
         }
         // flag links twitter
-        function flagIt2() {
+      /*  function flagIt2() {
           if (!badLinkWrapper.hasClass('fFlagged')) {
             $('.js-tweet-text-container').prepend('<div class="bs-alert-inline">' + warnMessage + '</div>');
             badLinkWrapper.addClass('fFlagged');
           }
         }
+*/
           // flag links Google
         function flagIt3() {
           if (!badLinkWrapper.hasClass('fFlagged')) {
