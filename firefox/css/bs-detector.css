@@ -1,0 +1,79 @@
+.bs-alert {
+  background: black;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: block;
+  height: 40px;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100vw;
+  z-index: 2147483647;
+    color:white;
+}
+
+.bs-alert span {
+  color: #fff;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 2em;
+  text-transform: uppercase;
+  color:white;
+}
+
+.bs-alert.bs-warning {
+  background: #ffff00;
+}
+
+.bs-alert.bs-caution span {
+  color: #000;
+}
+
+.bs-alert-close {
+  color: #white;
+  display: inline-block;
+  cursor: pointer;
+  float: right;
+  height: 40px;
+  line-height: 1.5em;
+  margin: 2px 6px 0;
+  padding: 0 6px;
+}
+
+.bs-warning .bs-alert-close {
+  color: white;
+  padding: 0 6px;
+}
+
+.bs-alert-shift {
+  padding-top: 28px;
+}
+
+.bs-alert-inline {
+  background: black;
+  border: 1px solid #800000;
+  border-radius: .25em;
+  color: white;
+  text-align: center;
+  margin: 8px 0;
+  padding: 4px;
+}
+
+.bs-alert-inline.bs-caution {
+  background: black;
+  border: 1px solid #ffff00;
+  color: white;
+}
+.bs-alert img {
+  height:25px;
+  width:25px;
+  vertical-align:text-bottom;
+}
+.bs-alert-inline img {
+  height:15px;
+  width:15px;
+  vertical-align:text-bottom;
+}

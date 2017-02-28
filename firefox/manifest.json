@@ -1,0 +1,48 @@
+{
+  "name": "Viralgranskarens varningslista",
+  "version": "0.1.0",
+  "author": "Tidnings AB Metro",
+  "short_name": "Varningslistan",
+  "manifest_version": 2,
+  "default_locale": "en",
+  "description": "Varnar dig för tveksamma sajter. Baserad på B.S Detector",
+  "homepage_url": "http://viralgranskaren.se",
+  "permissions": [
+    "*://unshorten.me/*",
+    "webRequest",
+    "webNavigation"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/utils.js",
+      "js/background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [ {
+     "css": [ "css/bs-detector.css" ],
+     "js": [
+       "js/utils.js",
+       "js/lib/jquery-3.1.1.slim.min.js",
+       "js/lib/mutation-summary.js",
+       "js/lib/jquery.mutation-summary.js",
+       "js/bs-detector.js"
+     ],
+     "matches": [ "*://*/*" ],
+     "exclude_matches": ["http://www.metro.se/*"],
+     "all_frames": true,
+     "run_at": "document_end"
+  } ],
+  "web_accessible_resources": [
+    "data/data.json",
+    "js/icon48.png"
+  ],
+  "page_action": {
+    "default_title": "B.S. Detector"
+  }
+}
