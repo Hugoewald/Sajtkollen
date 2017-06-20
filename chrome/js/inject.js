@@ -205,9 +205,6 @@ chrome.extension.sendMessage({}, function(response) {
                 $(this).prepend('<img src="https://pbs.twimg.com/profile_images/832633720402214912/PNgbr8Fe_bigger.jpg" width=20px height=20px /> &nbsp;');
                  $(this).addClass("hint--error hint--large hint--top");
                 $(this).attr('aria-label', warnMessage2);
-                $(this).on('click', function() {
-				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/","mywindow",'_blank');
-});
                 $(this).attr('is-bs', 'true');
                 }
                 });
@@ -218,9 +215,6 @@ chrome.extension.sendMessage({}, function(response) {
                 $(this).prepend('<img src="https://pbs.twimg.com/profile_images/832633720402214912/PNgbr8Fe_bigger.jpg" width=20px height=20px/> &nbsp;');
                 $(this).addClass("hint--error hint--large hint--top");
                 $(this).attr('aria-label', warnMessage2);
-                $(this).on('click', function() {
-				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
-});
                 $(this).attr('is-bs', 'true');
                 }
                 });
@@ -235,16 +229,10 @@ chrome.extension.sendMessage({}, function(response) {
                   if ($(this).parents('._1dwg').length == 1) {
                     badLinkWrapper = $(this).closest('.mtm');
                     flagIt();
-                    $(this).on('click', function() {
-    				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
-    });
                   }
                   if ($(this).parents('.UFICommentContent').length == 1) {
                     badLinkWrapper = $(this).closest('.UFICommentBody');
                     flagIt();
-                    $(this).on('click', function() {
-    				window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
-    });
                   }
                 });
                 break;
@@ -322,9 +310,6 @@ chrome.extension.sendMessage({}, function(response) {
           subtree: true
         };
         mutationObserver.observe(targetNode, observerConfig);
-        $('badLink').on('click', function() {
-        	window.open("http://touch.metro.se/nyheter/viralgranskarens-varningslista/EVHnfy!7M3vaeeacrHw2/",'_blank');
-         });
         // execute
         trigger();
     });
