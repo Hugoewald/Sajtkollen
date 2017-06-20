@@ -229,6 +229,7 @@ chrome.extension.sendMessage({}, function(response) {
                   if ($(this).parents('._1dwg').length == 1) {
                     badLinkWrapper = $(this).closest('.mtm');
                     flagIt();
+
                   }
                   if ($(this).parents('.UFICommentContent').length == 1) {
                     badLinkWrapper = $(this).closest('.UFICommentBody');
