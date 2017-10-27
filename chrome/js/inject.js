@@ -147,7 +147,7 @@ chrome.extension.sendMessage({}, function(response) {
               break;
           }
           if (dataType != 'test') {
-            warnMessage = '<img src="https://pbs.twimg.com/profile_images/832633720402214912/PNgbr8Fe_bigger.jpg" /> &nbsp; Den här webbsidan finns på Viralgranskarens varningslista';
+            warnMessage = '<img src="https://pbs.twimg.com/profile_images/907947397099278336/yxNOIRSw_bigger.jpg" /> &nbsp; Den här webbsidan finns på Viralgranskarens varningslista';
           } else {
             warnMessage = classType;
           }
@@ -202,7 +202,7 @@ chrome.extension.sendMessage({}, function(response) {
               case 'badlink':
                 $(badLink).each(function() {
                 if ($(this).attr('is-bs') != 'true' && $(this).attr('href').indexOf(currentSite[0].url) < 0) {
-                $(this).prepend('<img src="https://pbs.twimg.com/profile_images/832633720402214912/PNgbr8Fe_bigger.jpg" width=20px height=20px /> &nbsp;');
+                $(this).prepend('<img src="https://pbs.twimg.com/profile_images/907947397099278336/yxNOIRSw_bigger.jpg" width=20px height=20px /> &nbsp;');
                  $(this).addClass("hint--error hint--large hint--top");
                 $(this).attr('aria-label', warnMessage2);
                 $(this).attr('is-bs', 'true');
@@ -212,7 +212,7 @@ chrome.extension.sendMessage({}, function(response) {
               case 'none':
                 $(badLink).each(function() {
                 if ($(this).attr('is-bs') != 'true') {
-                $(this).prepend('<img src="https://pbs.twimg.com/profile_images/832633720402214912/PNgbr8Fe_bigger.jpg" width=20px height=20px/> &nbsp;');
+                $(this).prepend('<img src="https://pbs.twimg.com/profile_images/907947397099278336/yxNOIRSw_bigger.jpg" width=20px height=20px/> &nbsp;');
                 $(this).addClass("hint--error hint--large hint--top");
                 $(this).attr('aria-label', warnMessage2);
                 $(this).attr('is-bs', 'true');
